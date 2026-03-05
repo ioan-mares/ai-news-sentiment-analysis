@@ -12,7 +12,7 @@ In 2026, financial markets are flooded with information noise. Most traders rely
 ## 🏗️ Architecture & Data Pipeline
 The system follows a modular ETL (Extract, Transform, Load) pattern:
 
-1.  **Extraction:** Real-time RSS ingestion from Reuters, CNBC, Investing.com, and OilPrice.
+1.  **Extraction:** Real-time RSS ingestion from CNBC, Investing.com, and OilPrice.
 2.  **Inference:** Local **Llama 3.1 (8B/70B)** via the Ollama orchestration engine.
 3.  **Quantification:** A custom **Priority Scoring** algorithm to filter "Golden Signals":
     $$Priority = \frac{Impact (1-10) \times Confidence (0-100)}{100}$$
@@ -122,6 +122,6 @@ Manually set the MTU (Maximum Transmission Unit) of the WSL2 network interface t
    sudo ip link set dev eth0 mtu 1000
    ```
 
-Then retry ```bash pip install -r requirements.txt ``` a couple times until all deps are installed.
+Then retry ```pip install -r requirements.txt ``` a couple times until all deps are installed.
 
 > **Disclaimer:** This project is for research and educational purposes only. It does not constitute financial advice. The author is not responsible for any financial losses incurred from the use of this software.

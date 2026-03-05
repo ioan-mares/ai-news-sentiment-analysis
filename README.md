@@ -1,4 +1,4 @@
-# 🚀 Local-AI News Intelligence Engine (V1)
+# Local-AI News Intelligence Engine (V1)
 
 A high-performance asynchronous pipeline designed to scrape, analyze, and quantify global financial news using local Large Language Models (LLMs). Developed and tested on **NVIDIA RTX 4070 Super** hardware using a **PyTorch 2.7** backend for low-latency inference.
 
@@ -6,10 +6,10 @@ A high-performance asynchronous pipeline designed to scrape, analyze, and quanti
   <img src="assets/dashboard_preview.png" alt="Dashboard Preview" width="100%">
 </p>
 
-## 🧠 The Problem
+## The Problem
 In 2026, financial markets are flooded with information noise. Most traders rely on expensive terminal subscriptions or delayed aggregators. This project provides a **zero-latency, private, and cost-effective** alternative by running state-of-the-art models (Llama 3.1) locally, ensuring that sensitive market queries never leave the host machine.
 
-## 🏗️ Architecture & Data Pipeline
+## Architecture & Data Pipeline
 The system follows a modular ETL (Extract, Transform, Load) pattern:
 
 1.  **Extraction:** Real-time RSS ingestion from CNBC, Investing.com, and OilPrice.
@@ -25,13 +25,13 @@ The system follows a modular ETL (Extract, Transform, Load) pattern:
 - **Data Handling:** Pandas 2.3.3
 - **UI/UX:** Streamlit 1.54.0 & Plotly 6.5.2
 
-## ⚡ Key Features
+## Key Features
 - **Local-First Inference:** Data privacy guaranteed. Zero API costs and no external dependency on cloud providers.
 - **Structured Intelligence:** Automatically transforms unstructured news prose into strictly validated JSON schemas.
 - **Weighted Sentiment:** Uses "Bullish/Bearish/Neutral" classification adapted for high-frequency macro analysis.
 - **Hardware Context:** Developed and tested on NVIDIA RTX 4070 Super (12GB VRAM)
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 ai-news-sentiment-analysis/
@@ -70,7 +70,7 @@ CUDA Toolkit: 12.1 (Compatible with the PyTorch 2.7 build).
 1. **Conda Environment:** This project requires [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install) (recommended) or Anaconda installed on your WSL2/Linux instance.
 2. **GPU Drivers:** Ensure you have the latest NVIDIA drivers installed on your Windows host.
 
-## 🚀 Getting Started
+## Getting Started
 
 1. **Clone and Install Dependencies:**
 
@@ -108,10 +108,10 @@ CUDA Toolkit: 12.1 (Compatible with the PyTorch 2.7 build).
    streamlit run scripts/app.py
    ```
 
-## 📊 Logic & Scoring System
+## Logic & Scoring System
 The engine is instructed via a sophisticated System Prompt to avoid "neutrality bias". It forces the LLM to take decisive stances on market impact, using the full 1-10 scale. This ensures that the dashboard highlights genuine "Black Swan" events (Score > 7.0) versus routine market noise.
 
-## 📓 Troubleshooting: Network & SSL Issues (WSL2)
+## Troubleshooting: Network & SSL Issues (WSL2)
 If you encounter SSL: DECRYPTION_FAILED or record layer failure while downloading heavy packages (like PyTorch) over Wi-Fi in WSL2, it is likely due to MTU fragmentation.
 
 Solution:

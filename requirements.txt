@@ -1,0 +1,18 @@
+# Core AI
+torch>=2.7.1
+torchvision>=0.22.1
+torchaudio>=2.7.1
+
+# LLM & News
+ollama>=0.6.1
+feedparser>=6.0.12
+beautifulsoup4>=4.14.3
+
+# Data & Trading
+pandas>=2.3.3
+yfinance>=1.1.0
+ccxt>=4.5.38
+
+# UI
+streamlit>=1.54.0
+plotly>=6.5.2

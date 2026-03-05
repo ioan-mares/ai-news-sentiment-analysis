@@ -2,6 +2,10 @@
 
 A high-performance asynchronous pipeline designed to scrape, analyze, and quantify global financial news using local Large Language Models (LLMs). Developed and tested on **NVIDIA RTX 4070 Super** hardware using a **PyTorch 2.7** backend for low-latency inference.
 
+<p align="center">
+  <img src="assets/dashboard_preview.png" alt="Dashboard Preview" width="100%">
+</p>
+
 ## 🧠 The Problem
 In 2026, financial markets are flooded with information noise. Most traders rely on expensive terminal subscriptions or delayed aggregators. This project provides a **zero-latency, private, and cost-effective** alternative by running state-of-the-art models (Llama 3.1) locally, ensuring that sensitive market queries never leave the host machine.
 
@@ -25,7 +29,7 @@ The system follows a modular ETL (Extract, Transform, Load) pattern:
 - **Local-First Inference:** Data privacy guaranteed. Zero API costs and no external dependency on cloud providers.
 - **Structured Intelligence:** Automatically transforms unstructured news prose into strictly validated JSON schemas.
 - **Weighted Sentiment:** Uses "Bullish/Bearish/Neutral" classification adapted for high-frequency macro analysis.
-- **Hardware Context:** "Hardware Context: Developed and tested on NVIDIA RTX 4070 Super (12GB VRAM)
+- **Hardware Context:** Developed and tested on NVIDIA RTX 4070 Super (12GB VRAM)
 
 ## 📂 Project Structure
 
@@ -45,10 +49,35 @@ ai-news-sentiment-analysis/
 └── README.md                 # Project documentation
 ```
 
+## ⚙️ System Requirements & Environment
+This project is built for high-performance local inference. To replicate the results, ensure your environment matches these specifications:
+
+Architecture: x86_64 with WSL2 (Windows Subsystem for Linux) support.
+
+Software Stack
+Host OS: Windows 10/11 (for native GPU driver access).
+
+Guest OS: Ubuntu 22.04 LTS (via WSL2).
+
+Package Manager: Miniconda (Recommended) or Anaconda.
+
+Python Version: 3.10.x
+
+CUDA Toolkit: 12.1 (Compatible with the PyTorch 2.7 build).
+
+### 🛠️ Prerequisites
+
+1. **Conda Environment:** This project requires [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install) (recommended) or Anaconda installed on your WSL2/Linux instance.
+2. **GPU Drivers:** Ensure you have the latest NVIDIA drivers installed on your Windows host.
+
 ## 🚀 Getting Started
 
 1. **Clone and Install Dependencies:**
+
    ```bash
+   conda create --name news_ai python=3.10
+   conda activate news_ai
+
    git clone https://github.com/ioan-mares/ai-news-sentiment-analysis.git
    cd ai-news-sentiment-analysis
    pip install -r requirements.txt
@@ -81,5 +110,18 @@ ai-news-sentiment-analysis/
 
 ## 📊 Logic & Scoring System
 The engine is instructed via a sophisticated System Prompt to avoid "neutrality bias". It forces the LLM to take decisive stances on market impact, using the full 1-10 scale. This ensures that the dashboard highlights genuine "Black Swan" events (Score > 7.0) versus routine market noise.
+
+## 📓 Troubleshooting: Network & SSL Issues (WSL2)
+If you encounter SSL: DECRYPTION_FAILED or record layer failure while downloading heavy packages (like PyTorch) over Wi-Fi in WSL2, it is likely due to MTU fragmentation.
+
+Solution:
+Manually set the MTU (Maximum Transmission Unit) of the WSL2 network interface to a lower value (e.g., 1000) to ensure packet integrity through the host's network stack:
+
+   ```bash
+   # Set MTU to 1000 for high-stability during large downloads
+   sudo ip link set dev eth0 mtu 1000
+   ```
+
+Then retry ```bash pip install -r requirements.txt ``` a couple times until all deps are installed.
 
 > **Disclaimer:** This project is for research and educational purposes only. It does not constitute financial advice. The author is not responsible for any financial losses incurred from the use of this software.

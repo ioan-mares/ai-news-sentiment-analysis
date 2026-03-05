@@ -43,6 +43,7 @@ ai-news-sentiment-analysis/
 ├── .gitignore                # Excludes /data/ and venv
 ├── requirements.txt          # Project dependencies (4070 Super optimized)
 └── README.md                 # Project documentation
+```
 
 ## 🚀 Getting Started
 

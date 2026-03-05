@@ -1,6 +1,6 @@
 # 🚀 Local-AI News Intelligence Engine (V1)
 
-A high-performance asynchronous pipeline designed to scrape, analyze, and quantify global financial news using local Large Language Models (LLMs). Optimized for **NVIDIA RTX 4070 Super** hardware using a **PyTorch 2.7** backend for low-latency inference.
+A high-performance asynchronous pipeline designed to scrape, analyze, and quantify global financial news using local Large Language Models (LLMs). Developed and tested on **NVIDIA RTX 4070 Super** hardware using a **PyTorch 2.7** backend for low-latency inference.
 
 ## 🧠 The Problem
 In 2026, financial markets are flooded with information noise. Most traders rely on expensive terminal subscriptions or delayed aggregators. This project provides a **zero-latency, private, and cost-effective** alternative by running state-of-the-art models (Llama 3.1) locally, ensuring that sensitive market queries never leave the host machine.
@@ -49,9 +49,10 @@ ai-news-sentiment-analysis/
 
 1. **Clone and Install Dependencies:**
    ```bash
-   git clone [https://github.com/yourusername/news-intelligence-bot.git](https://github.com/yourusername/news-intelligence-bot.git)
-   cd news-intelligence-bot
+   git clone https://github.com/ioan-mares/ai-news-sentiment-analysis.git
+   cd ai-news-sentiment-analysis
    pip install -r requirements.txt
+   ```
 
 2. **Download the AI Model:**
    Depending on your VRAM (GPU memory), choose one:
@@ -61,18 +62,22 @@ ai-news-sentiment-analysis/
 
     # High Intelligence (Recommended for RTX 3090/4090/5090)
     ollama pull llama3.1:70b
+    ```
 
 3. **Ensure Ollama is running Llama 3.1:**
    ```bash
    ollama run llama3.1:latest
+   ```
 
 4. **Start the Intelligence Engine:**
    ```bash
    python scripts/run_pipeline.py
+   ```
 
 5. **Launch the Visual Dashboard:**
    ```bash
-   streamlit run dashboard.py
+   streamlit run scripts/app.py
+   ```
 
 ## 📊 Logic & Scoring System
 The engine is instructed via a sophisticated System Prompt to avoid "neutrality bias". It forces the LLM to take decisive stances on market impact, using the full 1-10 scale. This ensures that the dashboard highlights genuine "Black Swan" events (Score > 7.0) versus routine market noise.

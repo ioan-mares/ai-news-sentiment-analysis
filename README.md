@@ -27,6 +27,23 @@ The system follows a modular ETL (Extract, Transform, Load) pattern:
 - **Weighted Sentiment:** Uses "Bullish/Bearish/Neutral" classification adapted for high-frequency macro analysis.
 - **Hardware Context:** "Hardware Context: Developed and tested on NVIDIA RTX 4070 Super (12GB VRAM)
 
+## 📂 Project Structure
+
+```text
+ai-news-sentiment-analysis/
+├── data/
+│   ├── fetched_urls.log      # History of ingested URLs (duplicate prevention)
+│   ├── raw_news.json         # Transient storage for the latest news batch
+│   └── processed_news.json   # The "Gold" database with AI scores & logic
+├── scripts/
+│   ├── get_news_bot.py       # Async RSS ingestion & pre-filtering
+│   ├── analyze_news.py       # Async AI inference engine (Ollama + Llama 3.1)
+│   ├── run_pipeline.py       # Sequential orchestrator for Crontab
+│   └── app.py                # Streamlit Dashboard (Visualization)
+├── .gitignore                # Excludes /data/ and venv
+├── requirements.txt          # Project dependencies (4070 Super optimized)
+└── README.md                 # Project documentation
+
 ## 🚀 Getting Started
 
 1. **Clone and Install Dependencies:**
@@ -50,7 +67,7 @@ The system follows a modular ETL (Extract, Transform, Load) pattern:
 
 4. **Start the Intelligence Engine:**
    ```bash
-   python get_news_bot.py
+   python scripts/run_pipeline.py
 
 5. **Launch the Visual Dashboard:**
    ```bash

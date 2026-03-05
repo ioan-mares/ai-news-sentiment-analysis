@@ -1,6 +1,6 @@
 # 🚀 Local-AI News Intelligence Engine (V1)
 
-A high-performance asynchronous pipeline designed to scrape, analyze, and quantify global financial news using local Large Language Models (LLMs). Optimized for **NVIDIA RTX 5090** hardware using a **PyTorch 2.7** backend for low-latency inference.
+A high-performance asynchronous pipeline designed to scrape, analyze, and quantify global financial news using local Large Language Models (LLMs). Optimized for **NVIDIA RTX 4070 Super** hardware using a **PyTorch 2.7** backend for low-latency inference.
 
 ## 🧠 The Problem
 In 2026, financial markets are flooded with information noise. Most traders rely on expensive terminal subscriptions or delayed aggregators. This project provides a **zero-latency, private, and cost-effective** alternative by running state-of-the-art models (Llama 3.1) locally, ensuring that sensitive market queries never leave the host machine.
@@ -25,7 +25,7 @@ The system follows a modular ETL (Extract, Transform, Load) pattern:
 - **Local-First Inference:** Data privacy guaranteed. Zero API costs and no external dependency on cloud providers.
 - **Structured Intelligence:** Automatically transforms unstructured news prose into strictly validated JSON schemas.
 - **Weighted Sentiment:** Uses "Bullish/Bearish/Neutral" classification adapted for high-frequency macro analysis.
-- **Hardware Optimized:** Specifically tuned to utilize high-VRAM GPUs (RTX 5090) to maintain high throughput even with 70B parameter models.
+- **Hardware Context:** "Hardware Context: Developed and tested on NVIDIA RTX 4070 Super (12GB VRAM)
 
 ## 🚀 Getting Started
 

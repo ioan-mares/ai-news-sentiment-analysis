@@ -6,9 +6,9 @@ import os
 from datetime import datetime
 
 # --- PAGE CONFIGURATION ---
-st.set_page_config(page_title="AI Trading Monitor", layout="wide", page_icon="🚀")
+st.set_page_config(page_title="AI Trading Monitor", layout="wide", page_icon="🛠️")
 
-st.title("🚀 AI News Sentiment Dashboard")
+st.title("AI News Sentiment Dashboard")
 st.write("Real-time Monitoring: Strategy based on Impact & Confidence Score")
 
 def load_data():
@@ -87,7 +87,7 @@ try:
             st.metric("Avg AI Confidence", avg_conf)
 
         # --- OPPORTUNITIES TABLE ---
-        st.subheader("🔥 Top Trading Opportunities (Sorted by Priority)")
+        st.subheader("Top Trading Opportunities (Sorted by Priority)")
         
         # UI Styling: Highlights high-priority signals and color-codes sentiment
         def style_rows(row):

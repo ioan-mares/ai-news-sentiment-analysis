@@ -17,6 +17,7 @@ SCORING RULES (BE AGGRESSIVE):
 - Confidence (0-100): Reflect how clear the link is between the news and the ticker.
 
 MANDATORY: Do not default to 8/80. Use the full spectrum. If a news is critical, go for 9 or 10. If it's speculative, drop confidence to 40-50.
+MANDATORY: The "price_impact" field MUST be exactly one of these three strings: "Bullish", "Bearish", or "Neutral". Do not combine them. If the news is mixed, choose the one with the highest long-term probability.
 
 JSON STRUCTURE:
 {
